@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Headphones from "./pages/Headphones";
 import Speakers from "./pages/Speakers";
 import Earphones from "./pages/Earphones";
+import ProductDetail from "./pages/ProductDetail";
 import RootLayout from "./layout/RootLayout";
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "earphones",
         Component: Earphones,
+      },
+      {
+        path: "product/:slug",
+        Component: ProductDetail,
       },
     ],
   },

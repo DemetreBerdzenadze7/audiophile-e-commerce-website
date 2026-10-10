@@ -28,7 +28,7 @@ const FeaturedProducts = () => {
             Upgrade to premium speakers that are phenomenally built to deliver truly remarkable
             sound.
           </p>
-          <Button variant="dark" className="mt-6 md:mt-10">
+          <Button variant="dark" to="/product/zx9-speaker" className="mt-6 md:mt-10">
             See product
           </Button>
         </div>
@@ -37,7 +37,7 @@ const FeaturedProducts = () => {
       {/* ZX7 */}
       <section className="flex flex-col justify-center gap-8 h-80 px-6 bg-cover bg-center rounded-card bg-[url('/images/home/mobile/image-speaker-zx7.jpg')] md:px-15.5 md:bg-[url('/images/home/tablet/image-speaker-zx7.jpg')] lg:px-23.75 lg:bg-[url('/images/home/desktop/image-speaker-zx7.jpg')]">
         <h2 className="text-h4 font-bold uppercase">ZX7 Speaker</h2>
-        <Button variant="outline" className="bg-transparent">
+        <Button variant="outline" to="/product/zx7-speaker">
           See product
         </Button>
       </section>
@@ -55,7 +55,9 @@ const FeaturedProducts = () => {
         </picture>
         <div className="flex flex-col justify-center gap-8 h-50 px-6 bg-gray rounded-card md:h-80 md:px-10.25 lg:px-23.75">
           <h2 className="text-h4 font-bold uppercase">YX1 Earphones</h2>
-          <Button variant="outline">See product</Button>
+          <Button variant="outline" to="/product/yx1-earphones">
+            See product
+          </Button>
         </div>
       </section>
     </Container>

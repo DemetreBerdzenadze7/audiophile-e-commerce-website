@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="bg-black-header border-b border-white/20 md:border-0">
       <Container className="relative flex items-center h-22.5 md:border-b md:border-white/20 lg:h-24.25">
-        <button type="button" aria-label="Open menu" className="cursor-pointer lg:hidden">
+        <button type="button" aria-label="Open menu" className="lg:hidden">
           <img src="/images/shared/tablet/icon-hamburger.svg" alt="" />
         </button>
 
@@ -35,7 +35,7 @@ const Header = () => {
           </ul>
         </nav>
 
-        <button type="button" aria-label="Open cart" className="cursor-pointer md:ml-auto">
+        <button type="button" aria-label="Open cart" className="md:ml-auto">
           <img src="/images/shared/desktop/icon-cart.svg" alt="" />
         </button>
       </Container>

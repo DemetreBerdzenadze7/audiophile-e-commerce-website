@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router";
 
 type Variant = "primary" | "dark" | "outline";
 
@@ -6,6 +7,7 @@ interface ButtonProps {
   children: ReactNode;
   variant?: Variant;
   className?: string;
+  to?: string;
 }
 
 const variants: Record<Variant, string> = {
@@ -14,12 +16,19 @@ const variants: Record<Variant, string> = {
   outline: "border border-black text-black hover:bg-black hover:text-white",
 };
 
-const Button = ({ children, variant = "primary", className = "" }: ButtonProps) => {
+const Button = ({ children, variant = "primary", className = "", to }: ButtonProps) => {
+  const classes = `flex items-center justify-center w-40 h-12 text-subtitle font-bold uppercase transition-colors ${variants[variant]} ${className}`;
+
+  if (to) {
+    return (
+      <Link to={to} className={classes}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <button
-      type="button"
-      className={`w-40 h-12 text-subtitle font-bold uppercase cursor-pointer transition-colors ${variants[variant]} ${className}`}
-    >
+    <button type="button" className={classes}>
       {children}
     </button>
   );

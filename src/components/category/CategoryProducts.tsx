@@ -2,6 +2,7 @@ import Container from "../../container/Container";
 import Button from "../shared/Button";
 import { products } from "../../data/products";
 import type { Category } from "../../types/product";
+import { splitName } from "../../utils/splitName";
 
 interface CategoryProductsProps {
   category: Category;
@@ -15,8 +16,7 @@ const CategoryProducts = ({ category }: CategoryProductsProps) => {
   return (
     <Container className="flex flex-col gap-30 mt-16 md:mt-30 lg:gap-40 lg:mt-40">
       {categoryProducts.map((product, index) => {
-        const words = product.name.split(" ");
-        const lastWord = words.pop();
+        const [model, type] = splitName(product.name);
 
         return (
           <article
@@ -48,14 +48,16 @@ const CategoryProducts = ({ category }: CategoryProductsProps) => {
                 </p>
               )}
               <h2 className="text-h4 font-bold uppercase md:text-h2">
-                {words.join(" ")}
+                {model}
                 <br />
-                {lastWord}
+                {type}
               </h2>
               <p className="mt-6 text-body font-medium text-black/50 md:max-w-143 lg:mt-8">
                 {product.description}
               </p>
-              <Button className="mt-6 lg:mt-10">See product</Button>
+              <Button to={`/product/${product.slug}`} className="mt-6 lg:mt-10">
+                See product
+              </Button>
             </div>
           </article>
         );

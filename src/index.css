@@ -43,9 +43,21 @@
   --text-h2-sm--line-height: 2.375rem;
   --text-h2-sm--letter-spacing: 0.0625rem;
 
+  --text-h3: 2rem;
+  --text-h3--line-height: 2.25rem;
+  --text-h3--letter-spacing: 0.072rem;
+
+  --text-h3-sm: 1.5rem;
+  --text-h3-sm--line-height: 2.25rem;
+  --text-h3-sm--letter-spacing: 0.054rem;
+
   --text-h4: 1.75rem;
   --text-h4--line-height: 2.375rem;
   --text-h4--letter-spacing: 0.125rem;
+
+  --text-h5: 1.5rem;
+  --text-h5--line-height: 2.0625rem;
+  --text-h5--letter-spacing: 0.107rem;
 
   --text-h6: 1.125rem;
   --text-h6--line-height: 1.5rem;
@@ -74,5 +86,10 @@
 @layer base {
   body {
     @apply bg-gray-light font-manrope text-body text-black antialiased;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 }
