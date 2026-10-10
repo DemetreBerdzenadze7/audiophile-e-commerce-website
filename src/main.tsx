@@ -4,6 +4,7 @@ import "./index.css";
 import { createBrowserRouter, redirect } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Home from "./pages/Home";
+import Headphones from "./pages/Headphones";
 import RootLayout from "./layout/RootLayout";
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         Component: Home,
+      },
+      {
+        path: "headphones",
+        Component: Headphones,
       },
     ],
   },

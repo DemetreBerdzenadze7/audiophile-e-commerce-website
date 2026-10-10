@@ -1,6 +1,12 @@
+import { Link } from "react-router";
 import Container from "../../container/Container";
 
-const links = ["Home", "Headphones", "Speakers", "Earphones"];
+const links = [
+  { label: "Home", to: "/home" },
+  { label: "Headphones", to: "/headphones" },
+  { label: "Speakers", to: "/speakers" },
+  { label: "Earphones", to: "/earphones" },
+];
 
 const socials = [
   { name: "Facebook", icon: "/images/shared/desktop/icon-facebook.svg" },
@@ -10,21 +16,21 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="mt-30 bg-black-soft text-white md:mt-24 lg:mt-50">
+    <footer className="bg-black-soft text-white">
       <Container className="relative flex flex-col items-center pt-13 pb-9.5 text-center md:grid md:grid-cols-[1fr_auto] md:items-center md:pt-15 md:pb-11.5 md:text-left lg:pt-18.75 lg:pb-12">
         <span className="absolute top-0 left-1/2 -translate-x-1/2 w-25.25 h-1 bg-orange md:left-10 md:translate-x-0 lg:left-0" />
 
-        <a href="/" className="md:col-span-2 md:justify-self-start lg:col-span-1">
+        <Link to="/home" className="md:col-span-2 md:justify-self-start lg:col-span-1">
           <img src="/images/shared/desktop/logo.svg" alt="audiophile" />
-        </a>
+        </Link>
 
         <nav className="mt-12 md:col-span-2 md:mt-8 lg:col-span-1 lg:mt-0 lg:justify-self-end">
           <ul className="flex flex-col items-center gap-4 md:flex-row md:gap-8.5">
-            {links.map((link) => (
-              <li key={link}>
-                <a href="#" className="text-nav font-bold uppercase hover:text-orange transition-colors">
-                  {link}
-                </a>
+            {links.map(({ label, to }) => (
+              <li key={label}>
+                <Link to={to} className="text-nav font-bold uppercase hover:text-orange transition-colors">
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>

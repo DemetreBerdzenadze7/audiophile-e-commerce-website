@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Container from "../../container/Container";
 
 const categories = [
@@ -6,9 +7,13 @@ const categories = [
   { name: "Earphones", image: "/images/shared/desktop/image-category-thumbnail-earphones.png" },
 ];
 
-const Categories = () => {
+interface CategoriesProps {
+  className?: string;
+}
+
+const Categories = ({ className = "mt-10 md:mt-23.5 lg:mt-30" }: CategoriesProps) => {
   return (
-    <Container className="mt-10 md:mt-23.5 lg:mt-30">
+    <Container className={className}>
       <ul className="flex flex-col gap-4 md:flex-row md:gap-2.5 lg:gap-7.5">
         {categories.map(({ name, image }) => (
           <li key={name} className="relative pt-13 md:flex-1 lg:pt-20">
@@ -19,13 +24,13 @@ const Categories = () => {
             />
             <div className="flex flex-col items-center justify-end h-41.25 pb-5.5 bg-gray rounded-card lg:h-51 lg:pb-7.5">
               <h3 className="text-h6-sm font-bold uppercase lg:text-h6">{name}</h3>
-              <a
-                href="#"
+              <Link
+                to={`/${name.toLowerCase()}`}
                 className="flex items-center gap-3 mt-4 text-subtitle font-bold uppercase text-black/50 hover:text-orange transition-colors"
               >
                 Shop
                 <img src="/images/shared/desktop/icon-arrow-right.svg" alt="" />
-              </a>
+              </Link>
             </div>
           </li>
         ))}

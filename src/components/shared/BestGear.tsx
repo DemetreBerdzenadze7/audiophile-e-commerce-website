@@ -1,8 +1,12 @@
 import Container from "../../container/Container";
 
-const BestGear = () => {
+interface BestGearProps {
+  className?: string;
+}
+
+const BestGear = ({ className = "my-30 md:my-24 lg:my-50" }: BestGearProps) => {
   return (
-    <Container className="mt-30 text-center md:mt-24 lg:mt-50 lg:text-left">
+    <Container className={`text-center lg:text-left ${className}`}>
       <section className="lg:flex lg:flex-row-reverse lg:items-center lg:justify-between">
         <picture className="lg:shrink-0">
           <source media="(min-width: 72.5rem)" srcSet="/images/shared/desktop/image-best-gear.jpg" />
