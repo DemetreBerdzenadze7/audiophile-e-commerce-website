@@ -8,6 +8,7 @@ import Headphones from "./pages/Headphones";
 import Speakers from "./pages/Speakers";
 import Earphones from "./pages/Earphones";
 import ProductDetail from "./pages/ProductDetail";
+import Checkout from "./pages/Checkout";
 import RootLayout from "./layout/RootLayout";
 import { Provider } from "react-redux";
 import store from "./redux/store";
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "product/:slug",
         Component: ProductDetail,
+      },
+      {
+        path: "checkout",
+        Component: Checkout,
       },
     ],
   },

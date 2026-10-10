@@ -26,6 +26,7 @@ const CartModal = ({ onClose }: CartModalProps) => {
 
   const handleRemoveAll = () => {
     dispatch(removeAllProducts());
+    onClose();
   };
 
   const handleIncreaseAmount = (slug: string, amount: number) => {
@@ -33,7 +34,14 @@ const CartModal = ({ onClose }: CartModalProps) => {
   };
 
   const handleDecreaseAmount = (slug: string, amount: number) => {
+    const item = products.find((product) => product.slug === slug);
+    const isLastItem = products.length === 1 && item?.quantity === 1;
+
     dispatch(decreaseAmount(slug, amount));
+
+    if (isLastItem) {
+      onClose();
+    }
   };
 
   return (
@@ -113,7 +121,12 @@ const CartModal = ({ onClose }: CartModalProps) => {
                 <p className="text-h6 font-bold">{formatPrice(total)}</p>
               </div>
 
-              <Button fullWidth className="mt-6">
+              <Button
+                fullWidth
+                className="mt-6"
+                to="/checkout"
+                onClick={onClose}
+              >
                 Checkout
               </Button>
             </>

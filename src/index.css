@@ -11,6 +11,7 @@
   --color-gray-dark: #4c4c4c;
   --color-gray: #f1f1f1;
   --color-gray-light: #fafafa;
+  --color-gray-border: #cfcfcf;
   --color-white: #ffffff;
 
   /* Fonts */
@@ -77,6 +78,14 @@
   --text-subtitle: 0.8125rem;
   --text-subtitle--line-height: 1.5625rem;
   --text-subtitle--letter-spacing: 0.0625rem;
+
+  --text-label: 0.75rem;
+  --text-label--line-height: 1rem;
+  --text-label--letter-spacing: -0.013rem;
+
+  --text-input: 0.875rem;
+  --text-input--line-height: 1.1875rem;
+  --text-input--letter-spacing: -0.016rem;
 
   --text-nav: 0.8125rem;
   --text-nav--line-height: 1.5625rem;
