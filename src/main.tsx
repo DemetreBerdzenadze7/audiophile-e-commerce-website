@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router/dom";
 import Home from "./pages/Home";
 import Headphones from "./pages/Headphones";
 import Speakers from "./pages/Speakers";
+import Earphones from "./pages/Earphones";
 import RootLayout from "./layout/RootLayout";
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "speakers",
         Component: Speakers,
+      },
+      {
+        path: "earphones",
+        Component: Earphones,
       },
     ],
   },

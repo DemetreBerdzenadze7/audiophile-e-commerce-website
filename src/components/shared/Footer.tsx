@@ -49,8 +49,11 @@ const Footer = () => {
         <ul className="flex items-center gap-4 mt-12 md:mt-20 md:justify-self-end lg:col-start-2 lg:row-start-2 lg:self-end lg:mt-0 lg:mb-1">
           {socials.map(({ name, icon }) => (
             <li key={name}>
-              <a href="#" aria-label={name}>
-                <img src={icon} alt="" />
+              <a href="#" aria-label={name} className="group block">
+                <span
+                  style={{ maskImage: `url(${icon})`, WebkitMaskImage: `url(${icon})` }}
+                  className="block size-6 bg-white mask-no-repeat mask-center mask-contain transition-colors group-hover:bg-orange"
+                />
               </a>
             </li>
           ))}
