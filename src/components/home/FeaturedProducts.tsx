@@ -3,36 +3,39 @@ import Button from "../shared/Button";
 
 const FeaturedProducts = () => {
   return (
-    <Container className="flex flex-col gap-6 mt-30 md:gap-8 md:mt-24">
+    <Container className="flex flex-col gap-6 mt-30 md:gap-8 md:mt-24 lg:gap-12 lg:mt-42">
       {/* ZX9 */}
-      <section className="relative overflow-hidden flex flex-col items-center px-6 pt-13.75 pb-13.75 text-center bg-orange rounded-card md:pt-13 md:pb-16">
+      <section className="relative overflow-hidden flex flex-col items-center px-6 pt-13.75 pb-13.75 text-center bg-orange rounded-card md:pt-13 md:pb-16 lg:block lg:h-140 lg:px-0 lg:pt-33.25 lg:pb-0 lg:pl-166.5 lg:text-left">
         <img
           src="/images/home/desktop/pattern-circles.svg"
           alt=""
-          className="absolute left-1/2 -top-30 -translate-x-1/2 w-139.5 max-w-none md:-top-72 md:w-236"
+          className="absolute left-1/2 -top-30 -translate-x-1/2 w-139.5 max-w-none md:-top-72 md:w-236 lg:-left-37.25 lg:-top-9 lg:translate-x-0"
         />
-        <picture className="relative">
+        <picture className="relative lg:absolute lg:left-29.25 lg:-bottom-3">
+          <source media="(min-width: 72.5rem)" srcSet="/images/home/desktop/image-speaker-zx9.png" />
           <source media="(min-width: 48rem)" srcSet="/images/home/tablet/image-speaker-zx9.png" />
           <img
             src="/images/home/mobile/image-speaker-zx9.png"
             alt="ZX9 speaker"
-            className="w-43 md:w-49.25"
+            className="w-43 md:w-49.25 lg:w-94.5"
           />
         </picture>
-        <h2 className="relative mt-8 max-w-65 text-h1-sm font-bold uppercase text-white md:mt-16 md:text-h1">
-          ZX9 Speaker
-        </h2>
-        <p className="relative mt-6 max-w-70 text-body font-medium text-white/75 md:max-w-87.25">
-          Upgrade to premium speakers that are phenomenally built to deliver truly remarkable
-          sound.
-        </p>
-        <Button variant="dark" className="relative mt-6 md:mt-10">
-          See product
-        </Button>
+        <div className="relative flex flex-col items-center lg:items-start">
+          <h2 className="mt-8 max-w-65 text-h1-sm font-bold uppercase text-white md:mt-16 md:text-h1 lg:mt-0">
+            ZX9 Speaker
+          </h2>
+          <p className="mt-6 max-w-70 text-body font-medium text-white/75 md:max-w-87.25">
+            Upgrade to premium speakers that are phenomenally built to deliver truly remarkable
+            sound.
+          </p>
+          <Button variant="dark" className="mt-6 md:mt-10">
+            See product
+          </Button>
+        </div>
       </section>
 
       {/* ZX7 */}
-      <section className="flex flex-col justify-center gap-8 h-80 px-6 bg-cover bg-center rounded-card bg-[url('/images/home/mobile/image-speaker-zx7.jpg')] md:px-15.5 md:bg-[url('/images/home/tablet/image-speaker-zx7.jpg')]">
+      <section className="flex flex-col justify-center gap-8 h-80 px-6 bg-cover bg-center rounded-card bg-[url('/images/home/mobile/image-speaker-zx7.jpg')] md:px-15.5 md:bg-[url('/images/home/tablet/image-speaker-zx7.jpg')] lg:px-23.75 lg:bg-[url('/images/home/desktop/image-speaker-zx7.jpg')]">
         <h2 className="text-h4 font-bold uppercase">ZX7 Speaker</h2>
         <Button variant="outline" className="bg-transparent">
           See product
@@ -40,8 +43,9 @@ const FeaturedProducts = () => {
       </section>
 
       {/* YX1 */}
-      <section className="flex flex-col gap-6 md:flex-row md:gap-2.75">
-        <picture className="md:flex-1">
+      <section className="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-2.75 lg:gap-7.5">
+        <picture>
+          <source media="(min-width: 72.5rem)" srcSet="/images/home/desktop/image-earphones-yx1.jpg" />
           <source media="(min-width: 48rem)" srcSet="/images/home/tablet/image-earphones-yx1.jpg" />
           <img
             src="/images/home/mobile/image-earphones-yx1.jpg"
@@ -49,7 +53,7 @@ const FeaturedProducts = () => {
             className="w-full h-50 object-cover rounded-card md:h-80"
           />
         </picture>
-        <div className="flex flex-col justify-center gap-8 h-50 px-6 bg-gray rounded-card md:flex-1 md:h-80 md:px-10.25">
+        <div className="flex flex-col justify-center gap-8 h-50 px-6 bg-gray rounded-card md:h-80 md:px-10.25 lg:px-23.75">
           <h2 className="text-h4 font-bold uppercase">YX1 Earphones</h2>
           <Button variant="outline">See product</Button>
         </div>
