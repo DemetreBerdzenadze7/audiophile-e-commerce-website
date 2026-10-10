@@ -5,6 +5,7 @@ import { createBrowserRouter, redirect } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Home from "./pages/Home";
 import Headphones from "./pages/Headphones";
+import Speakers from "./pages/Speakers";
 import RootLayout from "./layout/RootLayout";
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "headphones",
         Component: Headphones,
+      },
+      {
+        path: "speakers",
+        Component: Speakers,
       },
     ],
   },
