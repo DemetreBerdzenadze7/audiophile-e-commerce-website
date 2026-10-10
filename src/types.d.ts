@@ -1,25 +1,27 @@
-export type Category = "headphones" | "speakers" | "earphones";
+type Category = "headphones" | "speakers" | "earphones";
 
-export interface ResponsiveImage {
+interface ResponsiveImage {
   mobile: string;
   tablet: string;
   desktop: string;
 }
 
-export interface IncludedItem {
+interface IncludedItem {
   quantity: number;
   item: string;
 }
 
-export interface RelatedProduct {
+interface RelatedProduct {
   slug: string;
   name: string;
   image: ResponsiveImage;
 }
 
-export interface Product {
+interface Product {
   id: number;
   slug: string;
+  shortName: string;
+  cartImage: string;
   name: string;
   image: ResponsiveImage;
   categoryImage: ResponsiveImage;
@@ -35,4 +37,12 @@ export interface Product {
     third: ResponsiveImage;
   };
   others: RelatedProduct[];
+}
+
+interface CartItem {
+  slug: string;
+  shortName: string;
+  price: number;
+  image: string;
+  quantity: number;
 }

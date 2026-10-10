@@ -9,6 +9,8 @@ import Speakers from "./pages/Speakers";
 import Earphones from "./pages/Earphones";
 import ProductDetail from "./pages/ProductDetail";
 import RootLayout from "./layout/RootLayout";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 );

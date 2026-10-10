@@ -1,5 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../redux/store";
 import Container from "../../container/Container";
+import CartModal from "../cart/CartModal";
 
 const links = [
   { label: "Home", to: "/home" },
@@ -9,6 +13,9 @@ const links = [
 ];
 
 const Header = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartCount = useSelector((store: RootState) => store.cart.length);
+
   return (
     <header className="bg-black-header border-b border-white/20 md:border-0">
       <Container className="relative flex items-center h-22.5 md:border-b md:border-white/20 lg:h-24.25">
@@ -35,10 +42,22 @@ const Header = () => {
           </ul>
         </nav>
 
-        <button type="button" aria-label="Open cart" className="md:ml-auto">
+        <button
+          type="button"
+          aria-label="Open cart"
+          onClick={() => setIsCartOpen((prev) => !prev)}
+          className="relative md:ml-auto"
+        >
           <img src="/images/shared/desktop/icon-cart.svg" alt="" />
+          {cartCount > 0 && (
+            <span className="absolute -top-2 -right-2.5 flex items-center justify-center min-w-4.5 h-4.5 px-1 rounded-full bg-orange text-[0.625rem] font-bold leading-none text-white">
+              {cartCount}
+            </span>
+          )}
         </button>
       </Container>
+
+      {isCartOpen && <CartModal onClose={() => setIsCartOpen(false)} />}
     </header>
   );
 };

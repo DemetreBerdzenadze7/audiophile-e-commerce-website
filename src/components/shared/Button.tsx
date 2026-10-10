@@ -8,6 +8,8 @@ interface ButtonProps {
   variant?: Variant;
   className?: string;
   to?: string;
+  onClick?: () => void;
+  fullWidth?: boolean;
 }
 
 const variants: Record<Variant, string> = {
@@ -16,8 +18,15 @@ const variants: Record<Variant, string> = {
   outline: "border border-black text-black hover:bg-black hover:text-white",
 };
 
-const Button = ({ children, variant = "primary", className = "", to }: ButtonProps) => {
-  const classes = `flex items-center justify-center w-40 h-12 text-subtitle font-bold uppercase transition-colors ${variants[variant]} ${className}`;
+const Button = ({
+  children,
+  variant = "primary",
+  className = "",
+  onClick,
+  to,
+  fullWidth = false,
+}: ButtonProps) => {
+  const classes = `flex items-center justify-center ${fullWidth ? "w-full" : "w-40"} h-12 text-subtitle font-bold uppercase transition-colors ${variants[variant]} ${className}`;
 
   if (to) {
     return (
@@ -28,7 +37,7 @@ const Button = ({ children, variant = "primary", className = "", to }: ButtonPro
   }
 
   return (
-    <button type="button" className={classes}>
+    <button type="button" className={classes} onClick={onClick}>
       {children}
     </button>
   );

@@ -20,11 +20,9 @@ const ProductDetail = () => {
     );
   }
 
-  console.log(slug);
-
   return (
     <>
-      <ProductOverview product={product} />
+      <ProductOverview product={product} key={product.slug} />
       <ProductFeatures product={product} />
       <ProductGallery product={product} />
       <RelatedProducts product={product} />
