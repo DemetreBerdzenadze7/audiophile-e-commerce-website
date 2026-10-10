@@ -4,15 +4,22 @@ import "./index.css";
 import { createBrowserRouter, redirect } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Home from "./pages/Home";
+import RootLayout from "./layout/RootLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    loader: () => redirect("/home"),
-  },
-  {
-    path: "/home",
-    Component: Home,
+    Component: RootLayout,
+    children: [
+      {
+        index: true,
+        loader: () => redirect("/home"),
+      },
+      {
+        path: "home",
+        Component: Home,
+      },
+    ],
   },
 ]);
 

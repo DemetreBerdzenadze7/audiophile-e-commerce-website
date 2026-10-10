@@ -1,1 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
 @import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-orange: #d87d4a;
+  --color-orange-light: #fbaf85;
+  --color-black: #000000;
+  --color-black-soft: #101010;
+  --color-black-header: #191919;
+  --color-gray-dark: #4c4c4c;
+  --color-gray: #f1f1f1;
+  --color-gray-light: #fafafa;
+  --color-white: #ffffff;
+
+  /* Fonts */
+  --font-manrope: "Manrope", sans-serif;
+
+  /* Breakpoints */
+  --breakpoint-md: 48rem; /* tablet: 768px */
+  --breakpoint-lg: 72.5rem; /* desktop: 1160px */
+
+  /* Container */
+  --container-content: 69.375rem; /* 1110px */
+
+  /* Radius */
+  --radius-card: 0.5rem;
+
+  /* Typography */
+  --text-h1: 3.5rem;
+  --text-h1--line-height: 3.625rem;
+  --text-h1--letter-spacing: 0.125rem;
+
+  --text-h1-sm: 2.25rem;
+  --text-h1-sm--line-height: 2.5rem;
+  --text-h1-sm--letter-spacing: 0.08rem;
+
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 2.75rem;
+  --text-h2--letter-spacing: 0.09rem;
+
+  --text-h2-sm: 1.75rem;
+  --text-h2-sm--line-height: 2.375rem;
+  --text-h2-sm--letter-spacing: 0.0625rem;
+
+  --text-h4: 1.75rem;
+  --text-h4--line-height: 2.375rem;
+  --text-h4--letter-spacing: 0.125rem;
+
+  --text-h6: 1.125rem;
+  --text-h6--line-height: 1.5rem;
+  --text-h6--letter-spacing: 0.08rem;
+
+  --text-h6-sm: 0.9375rem;
+  --text-h6-sm--line-height: 1.25rem;
+  --text-h6-sm--letter-spacing: 0.067rem;
+
+  --text-overline: 0.875rem;
+  --text-overline--line-height: 1.1875rem;
+  --text-overline--letter-spacing: 0.625rem;
+
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.5625rem;
+
+  --text-subtitle: 0.8125rem;
+  --text-subtitle--line-height: 1.5625rem;
+  --text-subtitle--letter-spacing: 0.0625rem;
+
+  --text-nav: 0.8125rem;
+  --text-nav--line-height: 1.5625rem;
+  --text-nav--letter-spacing: 0.125rem;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-light font-manrope text-body text-black antialiased;
+  }
+}
