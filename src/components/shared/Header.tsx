@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../../redux/store";
 import Container from "../../container/Container";
 import CartModal from "../cart/CartModal";
+import MobileMenu from "../menu/MobileMenu";
 
 const links = [
   { label: "Home", to: "/home" },
@@ -14,12 +15,21 @@ const links = [
 
 const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cartCount = useSelector((store: RootState) => store.cart.length);
 
   return (
-    <header className="bg-black-header border-b border-white/20 md:border-0">
+    <header className="sticky top-0 z-40 bg-black-header border-b border-white/20 md:border-0">
       <Container className="relative flex items-center h-22.5 md:border-b md:border-white/20 lg:h-24.25">
-        <button type="button" aria-label="Open menu" className="lg:hidden">
+        <button
+          type="button"
+          aria-label="Open menu"
+          onClick={() => {
+            setIsMenuOpen((prev) => !prev);
+            setIsCartOpen(false);
+          }}
+          className="lg:hidden"
+        >
           <img src="/images/shared/tablet/icon-hamburger.svg" alt="" />
         </button>
 
@@ -45,7 +55,10 @@ const Header = () => {
         <button
           type="button"
           aria-label="Open cart"
-          onClick={() => setIsCartOpen((prev) => !prev)}
+          onClick={() => {
+            setIsCartOpen((prev) => !prev);
+            setIsMenuOpen(false);
+          }}
           className="relative md:ml-auto"
         >
           <img src="/images/shared/desktop/icon-cart.svg" alt="" />
@@ -58,6 +71,7 @@ const Header = () => {
       </Container>
 
       {isCartOpen && <CartModal onClose={() => setIsCartOpen(false)} />}
+      {isMenuOpen && <MobileMenu onClose={() => setIsMenuOpen(false)} />}
     </header>
   );
 };

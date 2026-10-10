@@ -9,15 +9,20 @@ const categories = [
 
 interface CategoriesProps {
   className?: string;
+  onLinkClick?: () => void;
 }
 
-const Categories = ({ className = "mt-10 md:mt-23.5 lg:mt-30" }: CategoriesProps) => {
+const Categories = ({ className = "mt-10 md:mt-23.5 lg:mt-30", onLinkClick }: CategoriesProps) => {
   return (
     <Container className={className}>
       <ul className="flex flex-col gap-4 md:flex-row md:gap-2.5 lg:gap-7.5">
         {categories.map(({ name, image }) => (
           <li key={name} className="md:flex-1">
-            <Link to={`/${name.toLowerCase()}`} className="group relative block pt-13 lg:pt-20">
+            <Link
+              to={`/${name.toLowerCase()}`}
+              onClick={onLinkClick}
+              className="group relative block pt-13 lg:pt-20"
+            >
               <img
                 src={image}
                 alt=""

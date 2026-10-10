@@ -14,7 +14,6 @@ const Checkout = () => {
   const hasRedirected = useRef(false);
 
   useEffect(() => {
-    // StrictMode runs effects twice in dev, the ref makes sure we only go back once
     if (products.length === 0 && !hasRedirected.current) {
       hasRedirected.current = true;
       navigate(-1);
