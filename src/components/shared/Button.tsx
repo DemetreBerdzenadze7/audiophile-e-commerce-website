@@ -10,6 +10,8 @@ interface ButtonProps {
   to?: string;
   onClick?: () => void;
   fullWidth?: boolean;
+  type?: "button" | "submit";
+  form?: string;
 }
 
 const variants: Record<Variant, string> = {
@@ -25,6 +27,8 @@ const Button = ({
   onClick,
   to,
   fullWidth = false,
+  type = "button",
+  form,
 }: ButtonProps) => {
   const classes = `flex items-center justify-center ${fullWidth ? "w-full" : "w-40"} h-12 text-subtitle font-bold uppercase transition-colors ${variants[variant]} ${className}`;
 
@@ -37,7 +41,7 @@ const Button = ({
   }
 
   return (
-    <button type="button" className={classes} onClick={onClick}>
+    <button type={type} form={form} className={classes} onClick={onClick}>
       {children}
     </button>
   );

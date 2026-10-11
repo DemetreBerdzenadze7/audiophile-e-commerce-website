@@ -1,24 +1,60 @@
+import type { UseFormRegisterReturn } from "react-hook-form";
+import { InputMask } from "@react-input/mask";
+
 interface FormFieldProps {
   label: string;
-  name: string;
   placeholder: string;
+  registration: UseFormRegisterReturn;
+  error?: string;
   type?: string;
+  mask?: string;
   className?: string;
 }
 
-const FormField = ({ label, name, placeholder, type = "text", className = "" }: FormFieldProps) => {
+const FormField = ({
+  label,
+  placeholder,
+  registration,
+  error,
+  type = "text",
+  mask,
+  className = "",
+}: FormFieldProps) => {
+  const id = registration.name;
+  const inputClasses = `h-14 px-6 rounded-card text-input font-bold caret-orange placeholder:text-black/40 outline-none transition-colors ${
+    error ? "border-2 border-red" : "border border-gray-border focus:border-orange"
+  }`;
+
   return (
     <div className={`flex flex-col gap-2.25 ${className}`}>
-      <label htmlFor={name} className="text-label font-bold">
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        className="h-14 px-6 border border-gray-border rounded-card text-input font-bold caret-orange placeholder:text-black/40 outline-none focus:border-orange transition-colors"
-      />
+      <div className="flex items-center justify-between gap-2">
+        <label htmlFor={id} className={`text-label font-bold ${error ? "text-red" : ""}`}>
+          {label}
+        </label>
+        {error && <p className="text-label font-medium text-red">{error}</p>}
+      </div>
+
+      {mask ? (
+        <InputMask
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          mask={mask}
+          replacement={{ _: /\d/ }}
+          aria-invalid={!!error}
+          className={inputClasses}
+          {...registration}
+        />
+      ) : (
+        <input
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          aria-invalid={!!error}
+          className={inputClasses}
+          {...registration}
+        />
+      )}
     </div>
   );
 };

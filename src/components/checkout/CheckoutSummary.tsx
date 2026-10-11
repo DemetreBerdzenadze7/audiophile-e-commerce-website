@@ -51,7 +51,7 @@ const CheckoutSummary = ({ items, total, shipping, vat, grandTotal }: CheckoutSu
         </div>
       </dl>
 
-      <Button fullWidth className="mt-8">
+      <Button type="submit" form="checkout-form" fullWidth className="mt-8">
         Continue &amp; Pay
       </Button>
     </aside>
