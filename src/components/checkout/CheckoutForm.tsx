@@ -6,7 +6,11 @@ import { checkoutSchema, type CheckoutFormData } from "./checkoutSchema";
 
 const sectionTitle = "text-subtitle font-bold uppercase text-orange";
 
-const CheckoutForm = () => {
+interface CheckoutFormProps {
+  onSuccess: () => void;
+}
+
+const CheckoutForm = ({ onSuccess }: CheckoutFormProps) => {
   const {
     register,
     handleSubmit,
@@ -19,7 +23,8 @@ const CheckoutForm = () => {
 
   const paymentMethod = useWatch({ control, name: "paymentMethod" });
 
-  const onSubmit: SubmitHandler<CheckoutFormData> = (data) => console.log(data);
+  // The form only reaches here when every field passes validation
+  const onSubmit: SubmitHandler<CheckoutFormData> = () => onSuccess();
 
   return (
     <form

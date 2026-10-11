@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Container from "../../container/Container";
 import Button from "../shared/Button";
+import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
 import type { RootState } from "../../redux/store";
 import type { AppDispatch } from "../../redux/store";
 import {
@@ -16,6 +17,8 @@ interface CartModalProps {
 }
 
 const CartModal = ({ onClose }: CartModalProps) => {
+  useLockBodyScroll();
+
   const dispatch = useDispatch<AppDispatch>();
   const products = useSelector((store: RootState) => store.cart);
 

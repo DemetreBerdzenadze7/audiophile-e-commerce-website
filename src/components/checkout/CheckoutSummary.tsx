@@ -6,11 +6,19 @@ interface CheckoutSummaryProps {
   shipping: number;
   vat: number;
   grandTotal: number;
+  isProcessing?: boolean;
 }
 
 const formatPrice = (price: number) => `$ ${price.toLocaleString("en-US")}`;
 
-const CheckoutSummary = ({ items, total, shipping, vat, grandTotal }: CheckoutSummaryProps) => {
+const CheckoutSummary = ({
+  items,
+  total,
+  shipping,
+  vat,
+  grandTotal,
+  isProcessing = false,
+}: CheckoutSummaryProps) => {
   const rows = [
     { label: "Total", value: total },
     { label: "Shipping", value: shipping },
@@ -51,8 +59,14 @@ const CheckoutSummary = ({ items, total, shipping, vat, grandTotal }: CheckoutSu
         </div>
       </dl>
 
-      <Button type="submit" form="checkout-form" fullWidth className="mt-8">
-        Continue &amp; Pay
+      <Button
+        type="submit"
+        form="checkout-form"
+        loading={isProcessing}
+        fullWidth
+        className="mt-8"
+      >
+        {isProcessing ? "Processing..." : "Continue & Pay"}
       </Button>
     </aside>
   );

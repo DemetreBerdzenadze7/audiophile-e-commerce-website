@@ -91,6 +91,23 @@
   --text-nav: 0.8125rem;
   --text-nav--line-height: 1.5625rem;
   --text-nav--letter-spacing: 0.125rem;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-modal-in: modal-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes modal-in {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem) scale(0.96);
+    }
+  }
 }
 
 @layer base {

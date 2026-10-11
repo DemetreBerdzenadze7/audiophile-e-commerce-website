@@ -1,10 +1,13 @@
 import Categories from "../shared/Categories";
+import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
 
 interface MobileMenuProps {
   onClose: () => void;
 }
 
 const MobileMenu = ({ onClose }: MobileMenuProps) => {
+  useLockBodyScroll();
+
   return (
     <div
       onClick={onClose}

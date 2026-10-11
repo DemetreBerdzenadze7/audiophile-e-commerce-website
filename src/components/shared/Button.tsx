@@ -12,6 +12,7 @@ interface ButtonProps {
   fullWidth?: boolean;
   type?: "button" | "submit";
   form?: string;
+  loading?: boolean;
 }
 
 const variants: Record<Variant, string> = {
@@ -29,6 +30,7 @@ const Button = ({
   fullWidth = false,
   type = "button",
   form,
+  loading = false,
 }: ButtonProps) => {
   const classes = `flex items-center justify-center ${fullWidth ? "w-full" : "w-40"} h-12 text-subtitle font-bold uppercase transition-colors ${variants[variant]} ${className}`;
 
@@ -41,7 +43,17 @@ const Button = ({
   }
 
   return (
-    <button type={type} form={form} className={classes} onClick={onClick}>
+    <button
+      type={type}
+      form={form}
+      disabled={loading}
+      aria-busy={loading}
+      className={`${classes} gap-3 disabled:cursor-wait disabled:opacity-80`}
+      onClick={onClick}
+    >
+      {loading && (
+        <span className="size-4 border-2 border-current border-r-transparent rounded-full animate-spin" />
+      )}
       {children}
     </button>
   );
