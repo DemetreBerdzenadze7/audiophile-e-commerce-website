@@ -1,6 +1,5 @@
 import Container from "../../container/Container";
 import Button from "../shared/Button";
-import type { Product } from "../../types/product";
 
 interface RelatedProductsProps {
   product: Product;

@@ -1,5 +1,4 @@
 import Container from "../../container/Container";
-import type { Product } from "../../types/product";
 
 interface ProductFeaturesProps {
   product: Product;

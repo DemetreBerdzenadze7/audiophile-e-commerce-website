@@ -1,7 +1,6 @@
 import Container from "../../container/Container";
 import Button from "../shared/Button";
 import { products } from "../../data/products";
-import type { Category } from "../../types/product";
 import { splitName } from "../../utils/splitName";
 
 interface CategoryProductsProps {
